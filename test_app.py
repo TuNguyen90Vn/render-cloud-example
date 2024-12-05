@@ -2,7 +2,11 @@ import unittest
 import json
 
 from app import create_app
-from settings import DB_URL_TEST
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+DB_URL_TEST = os.environ.get("DB_TEST_URL")
 
 class CastingAgency(unittest.TestCase):
 

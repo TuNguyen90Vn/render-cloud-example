@@ -1,9 +1,12 @@
 from sqlalchemy import Column, Integer, ForeignKey
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from settings import DB_URL
+from dotenv import load_dotenv
+import os
 
-database_path = DB_URL
+load_dotenv()
+
+database_path = os.environ.get("DB_URL")
 db = SQLAlchemy()
 
 def setup_db(app, database_path=database_path):
